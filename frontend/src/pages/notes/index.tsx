@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Container, Typography, Box, Fab } from '@mui/material';
+import { Container, Typography, Box, Button } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import NoteList from '@/components/notes/NoteList';
 import { noteService } from '@/services/note-service';
-
 
 const NotesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -79,8 +78,21 @@ const NotesPage = () => {
   return (
     <Container>
       <Box sx={{ mt: 4, mb: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          노트 목록
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Typography variant="h4" component="h1">
+            메모 게시판
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<AddIcon />}
+            onClick={() => router.push('/notes/create')}
+          >
+            새글작성
+          </Button>
+        </Box>
+        <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 3 }}>
+          간단한 메모를 작성하는 게시판ㄴ
         </Typography>
         <NoteList
           notesData={notesData}
@@ -89,14 +101,6 @@ const NotesPage = () => {
           onUpdateNote={handleUpdateNote}
           onDeleteNote={handleDeleteNote}
         />
-        <Fab
-          color="primary"
-          aria-label="add"
-          sx={{ position: 'fixed', bottom: 16, right: 16 }}
-          onClick={() => router.push('/notes/create')}
-        >
-          <AddIcon />
-        </Fab>
       </Box>
     </Container>
   );
