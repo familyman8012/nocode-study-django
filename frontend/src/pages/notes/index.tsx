@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box, Fab } from '@mui/material';
+import { Add as AddIcon } from '@mui/icons-material';
+import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import NoteList from '@/components/notes/NoteList';
 import { noteService } from '@/services/note-service';
@@ -9,6 +11,7 @@ import { noteService } from '@/services/note-service';
 const NotesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const queryClient = useQueryClient();
+  const router = useRouter();
 
   // 노트 목록 조회
   const { data: notesData, isLoading } = useQuery({
@@ -86,6 +89,14 @@ const NotesPage = () => {
           onUpdateNote={handleUpdateNote}
           onDeleteNote={handleDeleteNote}
         />
+        <Fab
+          color="primary"
+          aria-label="add"
+          sx={{ position: 'fixed', bottom: 16, right: 16 }}
+          onClick={() => router.push('/notes/create')}
+        >
+          <AddIcon />
+        </Fab>
       </Box>
     </Container>
   );

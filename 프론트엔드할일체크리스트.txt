@@ -47,15 +47,15 @@
 
 [Phase 4] Note 기능 구현
 1. 노트 목록
-- [ ] 노트 목록 페이지 구현 (/pages/notes/index.tsx)
-- [ ] 노트 목록 컴포넌트 (components/notes/NoteList.tsx)
-- [ ] 페이지네이션 구현
-- [ ] 노트 아이템 컴포넌트 (components/notes/NoteItem.tsx)
+- [x] 노트 목록 페이지 구현 (/pages/notes/index.tsx)
+- [x] 노트 목록 컴포넌트 (components/notes/NoteList.tsx)
+- [x] 페이지네이션 구현
+- [x] 노트 아이템 컴포넌트 (components/notes/NoteItem.tsx)
 
 2. 노트 생성/수정
-- [ ] 노트 폼 컴포넌트 (components/notes/NoteForm.tsx)
-- [ ] 노트 생성 페이지 (/pages/notes/create.tsx)
-- [ ] 노트 수정 페이지 (/pages/notes/[id]/edit.tsx)
+- [x] 노트 폼 컴포넌트 (components/notes/NoteForm.tsx)
+- [x] 노트 생성 페이지 (/pages/notes/create.tsx)
+- [x] 노트 수정 페이지 (/pages/notes/[id]/edit.tsx)
 
 [Phase 5] Todo 기능 구현
 1. Todo 목록
