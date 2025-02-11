@@ -6,12 +6,14 @@ import { NoteInput } from '@/interfaces/note';
 interface NoteFormProps {
   initialData?: NoteInput;
   onSubmit: (data: NoteInput) => Promise<void>;
+  onDelete?: () => Promise<void>;
   submitLabel?: string;
 }
 
 const NoteForm: React.FC<NoteFormProps> = ({
   initialData,
   onSubmit,
+  onDelete,
   submitLabel = '저장',
 }) => {
   const {
@@ -46,15 +48,27 @@ const NoteForm: React.FC<NoteFormProps> = ({
         helperText={errors.content?.message}
         sx={{ mb: 2 }}
       />
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        disabled={isSubmitting}
-        sx={{ mt: 2 }}
-      >
-        {submitLabel}
-      </Button>
+      <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disabled={isSubmitting}
+        >
+          {submitLabel}
+        </Button>
+        {onDelete && (
+          <Button
+            type="button"
+            variant="contained"
+            color="error"
+            onClick={onDelete}
+            disabled={isSubmitting}
+          >
+            삭제하기
+          </Button>
+        )}
+      </Box>
     </Box>
   );
 };

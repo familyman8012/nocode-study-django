@@ -32,8 +32,27 @@ const EditNotePage = () => {
     },
   });
 
+  // 노트 삭제
+  const deleteNoteMutation = useMutation({
+    mutationFn: () => noteService.deleteNote(noteId),
+    onSuccess: () => {
+      toast.success('노트가 삭제되었습니다.');
+      router.push('/notes');
+    },
+    onError: (error) => {
+      console.error('노트 삭제 실패:', error);
+      toast.error('노트 삭제에 실패했습니다.');
+    },
+  });
+
   const handleSubmit = async (data: NoteInput) => {
     await updateNoteMutation.mutateAsync(data);
+  };
+
+  const handleDelete = async () => {
+    if (window.confirm('정말 삭제하시겠습니까?')) {
+      await deleteNoteMutation.mutateAsync();
+    }
   };
 
   if (isLoading) {
@@ -65,6 +84,7 @@ const EditNotePage = () => {
         <NoteForm
           initialData={{ content: note.content }}
           onSubmit={handleSubmit}
+          onDelete={handleDelete}
           submitLabel="수정하기"
         />
       </Box>
