@@ -8,35 +8,35 @@
 - [x] ESLint, Prettier 설정
 
 2. 필수 라이브러리 설치 및 설정
-- [ ] MUI 설치 및 테마 설정
-- [ ] axios 설치 및 인스턴스 설정
-- [ ] react-query 설치 및 설정
-- [ ] react-hook-form 설치
-- [ ] mobx, mobx-react 설치
-- [ ] emotionjs 설치
-- [ ] toastify 설치
+- [x] MUI 설치 및 테마 설정
+- [x] axios 설치 및 인스턴스 설정
+- [x] react-query 설치 및 설정
+- [x] react-hook-form 설치
+- [x] mobx, mobx-react 설치
+- [x] emotionjs 설치
+- [x] toastify 설치
 
 3. 타입 정의
-- [ ] Note 관련 타입 정의 (interfaces/note.ts)
-- [ ] Todo 관련 타입 정의 (interfaces/todo.ts)
-- [ ] API 응답 타입 정의 (interfaces/api.ts)
+- [x] Note 관련 타입 정의 (interfaces/note.ts)
+- [x] Todo 관련 타입 정의 (interfaces/todo.ts)
+- [x] API 응답 타입 정의 (interfaces/api.ts)
 
 4. API 서비스 레이어 구현
-- [ ] API 클라이언트 설정 (services/api-client.ts)
-- [ ] Note API 서비스 구현 (services/note-service.ts)
-- [ ] Todo API 서비스 구현 (services/todo-service.ts)
+- [x] API 클라이언트 설정 (services/api-client.ts)
+- [x] Note API 서비스 구현 (services/note-service.ts)
+- [x] Todo API 서비스 구현 (services/todo-service.ts)
 
 [Phase 2] 공통 컴포넌트 및 기본 레이아웃
 1. 레이아웃 구현
-- [ ] 기본 레이아웃 컴포넌트 (components/layout/Layout.tsx)
-- [ ] 네비게이션 바 (components/layout/NavigationBar.tsx)
-- [ ] 푸터 (components/layout/Footer.tsx)
+- [x] 기본 레이아웃 컴포넌트 (components/layout/Layout.tsx)
+- [x] 네비게이션 바 (components/layout/NavigationBar.tsx)
+- [x] 푸터 (components/layout/Footer.tsx)
 
 2. 공통 UI 컴포넌트
-- [ ] 로딩 컴포넌트 (components/common/Loading.tsx)
-- [ ] 에러 컴포넌트 (components/common/Error.tsx)
-- [ ] 확인 대화상자 (components/common/ConfirmDialog.tsx)
-- [ ] 알림 스낵바 (components/common/Snackbar.tsx)
+- [x] 로딩 컴포넌트 (components/common/Loading.tsx)
+- [x] 에러 컴포넌트 (components/common/Error.tsx)
+- [x] 확인 대화상자 (components/common/ConfirmDialog.tsx)
+- [x] 알림 스낵바 (components/common/Snackbar.tsx)
 
 [Phase 3] 상태 관리 구현
 1. MobX Store 구현
