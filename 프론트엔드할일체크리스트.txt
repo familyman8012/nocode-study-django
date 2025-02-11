@@ -59,10 +59,10 @@
 
 [Phase 5] Todo 기능 구현
 1. Todo 목록
-- [ ] Todo 목록 페이지 구현 (/pages/todos/index.tsx)
-- [ ] Todo 목록 컴포넌트 (components/todos/TodoList.tsx)
-- [ ] 필터링 컴포넌트 (components/todos/TodoFilter.tsx)
-- [ ] Todo 아이템 컴포넌트 (components/todos/TodoItem.tsx)
+- [x] Todo 목록 페이지 구현 (/pages/todos/index.tsx)
+- [x] Todo 목록 컴포넌트 (components/todos/TodoList.tsx)
+- [x] 필터링 컴포넌트 (components/todos/TodoFilter.tsx)
+- [x] Todo 아이템 컴포넌트 (components/todos/TodoItem.tsx)
 
 2. Todo 생성/수정
 - [ ] Todo 폼 컴포넌트 (components/todos/TodoForm.tsx)

@@ -92,7 +92,7 @@ const NotesPage = () => {
           </Button>
         </Box>
         <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 3 }}>
-          간단한 메모를 작성하는 게시판ㄴ
+          간단한 메모를 작성하는 게시판
         </Typography>
         <NoteList
           notesData={notesData}
