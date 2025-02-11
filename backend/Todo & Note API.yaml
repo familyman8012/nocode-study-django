@@ -1,0 +1,516 @@
+openapi: 3.0.3
+info:
+  title: Todo & Note API
+  version: 1.0.0
+  description: API documentation for Todo and Note application
+paths:
+  /api/notes/:
+    get:
+      operationId: notes_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - notes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedNoteList'
+          description: ''
+    post:
+      operationId: notes_create
+      tags:
+      - notes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Note'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+          description: ''
+  /api/notes/{id}/:
+    get:
+      operationId: notes_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this note.
+        required: true
+      tags:
+      - notes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+          description: ''
+    put:
+      operationId: notes_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this note.
+        required: true
+      tags:
+      - notes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Note'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+          description: ''
+    patch:
+      operationId: notes_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this note.
+        required: true
+      tags:
+      - notes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedNote'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedNote'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedNote'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+          description: ''
+    delete:
+      operationId: notes_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this note.
+        required: true
+      tags:
+      - notes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/todos/:
+    get:
+      operationId: todos_list
+      parameters:
+      - in: query
+        name: due_date__gte
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: due_date__lte
+        schema:
+          type: string
+          format: date
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: priority
+        schema:
+          type: string
+          enum:
+          - high
+          - low
+          - medium
+        description: |-
+          * `high` - High
+          * `medium` - Medium
+          * `low` - Low
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - completed
+          - pending
+        description: |-
+          * `pending` - Pending
+          * `completed` - Completed
+      tags:
+      - todos
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTodoList'
+          description: ''
+    post:
+      operationId: todos_create
+      tags:
+      - todos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Todo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Todo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Todo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+          description: ''
+  /api/todos/{id}/:
+    get:
+      operationId: todos_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this todo.
+        required: true
+      tags:
+      - todos
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+          description: ''
+    put:
+      operationId: todos_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this todo.
+        required: true
+      tags:
+      - todos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Todo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Todo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Todo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+          description: ''
+    patch:
+      operationId: todos_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this todo.
+        required: true
+      tags:
+      - todos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTodo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTodo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTodo'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+          description: ''
+    delete:
+      operationId: todos_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this todo.
+        required: true
+      tags:
+      - todos
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/todos/statistics/:
+    get:
+      operationId: todos_statistics_retrieve
+      tags:
+      - todos
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+          description: ''
+components:
+  schemas:
+    Note:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        content:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - content
+      - created_at
+      - id
+    PaginatedNoteList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+    PaginatedTodoList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Todo'
+    PatchedNote:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        content:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedTodo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        task:
+          type: string
+        due_date:
+          type: string
+          format: date
+        priority:
+          $ref: '#/components/schemas/PriorityEnum'
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PriorityEnum:
+      enum:
+      - high
+      - medium
+      - low
+      type: string
+      description: |-
+        * `high` - High
+        * `medium` - Medium
+        * `low` - Low
+    StatusEnum:
+      enum:
+      - pending
+      - completed
+      type: string
+      description: |-
+        * `pending` - Pending
+        * `completed` - Completed
+    Todo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        task:
+          type: string
+        due_date:
+          type: string
+          format: date
+        priority:
+          $ref: '#/components/schemas/PriorityEnum'
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - due_date
+      - id
+      - priority
+      - task
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

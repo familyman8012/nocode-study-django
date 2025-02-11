@@ -1,0 +1,93 @@
+프론트엔드 개발 체크리스트 (Next.js 13 Page Router + MUI + TypeScript)
+
+[Phase 1] 프로젝트 초기 설정 및 기본 구조
+1. 프로젝트 생성 및 기본 설정
+- [x] Next.js 13 프로젝트 생성 (Page Router)
+- [x] TypeScript 설정
+- [x] .gitignore 설정
+- [x] ESLint, Prettier 설정
+
+2. 필수 라이브러리 설치 및 설정
+- [ ] MUI 설치 및 테마 설정
+- [ ] axios 설치 및 인스턴스 설정
+- [ ] react-query 설치 및 설정
+- [ ] react-hook-form 설치
+- [ ] mobx, mobx-react 설치
+- [ ] emotionjs 설치
+- [ ] toastify 설치
+
+3. 타입 정의
+- [ ] Note 관련 타입 정의 (interfaces/note.ts)
+- [ ] Todo 관련 타입 정의 (interfaces/todo.ts)
+- [ ] API 응답 타입 정의 (interfaces/api.ts)
+
+4. API 서비스 레이어 구현
+- [ ] API 클라이언트 설정 (services/api-client.ts)
+- [ ] Note API 서비스 구현 (services/note-service.ts)
+- [ ] Todo API 서비스 구현 (services/todo-service.ts)
+
+[Phase 2] 공통 컴포넌트 및 기본 레이아웃
+1. 레이아웃 구현
+- [ ] 기본 레이아웃 컴포넌트 (components/layout/Layout.tsx)
+- [ ] 네비게이션 바 (components/layout/NavigationBar.tsx)
+- [ ] 푸터 (components/layout/Footer.tsx)
+
+2. 공통 UI 컴포넌트
+- [ ] 로딩 컴포넌트 (components/common/Loading.tsx)
+- [ ] 에러 컴포넌트 (components/common/Error.tsx)
+- [ ] 확인 대화상자 (components/common/ConfirmDialog.tsx)
+- [ ] 알림 스낵바 (components/common/Snackbar.tsx)
+
+[Phase 3] 상태 관리 구현
+1. MobX Store 구현
+- [ ] RootStore 설정 (stores/RootStore.ts)
+- [ ] Note Store 구현 (stores/NoteStore.ts)
+- [ ] Todo Store 구현 (stores/TodoStore.ts)
+- [ ] UI Store 구현 (stores/UIStore.ts - 로딩, 에러, 알림 상태 관리)
+
+[Phase 4] Note 기능 구현
+1. 노트 목록
+- [ ] 노트 목록 페이지 구현 (/pages/notes/index.tsx)
+- [ ] 노트 목록 컴포넌트 (components/notes/NoteList.tsx)
+- [ ] 페이지네이션 구현
+- [ ] 노트 아이템 컴포넌트 (components/notes/NoteItem.tsx)
+
+2. 노트 생성/수정
+- [ ] 노트 폼 컴포넌트 (components/notes/NoteForm.tsx)
+- [ ] 노트 생성 페이지 (/pages/notes/create.tsx)
+- [ ] 노트 수정 페이지 (/pages/notes/[id]/edit.tsx)
+
+[Phase 5] Todo 기능 구현
+1. Todo 목록
+- [ ] Todo 목록 페이지 구현 (/pages/todos/index.tsx)
+- [ ] Todo 목록 컴포넌트 (components/todos/TodoList.tsx)
+- [ ] 필터링 컴포넌트 (components/todos/TodoFilter.tsx)
+- [ ] Todo 아이템 컴포넌트 (components/todos/TodoItem.tsx)
+
+2. Todo 생성/수정
+- [ ] Todo 폼 컴포넌트 (components/todos/TodoForm.tsx)
+- [ ] Todo 생성 페이지 (/pages/todos/create.tsx)
+- [ ] Todo 수정 페이지 (/pages/todos/[id]/edit.tsx)
+
+3. Todo 통계
+- [ ] 통계 페이지 구현 (/pages/todos/statistics.tsx)
+- [ ] 통계 차트 컴포넌트 (components/todos/TodoStats.tsx)
+
+[Phase 6] 최적화 및 사용성 개선
+1. 성능 최적화
+- [ ] 컴포넌트 메모이제이션 적용
+- [ ] API 캐싱 최적화
+- [ ] 이미지 최적화
+
+2. 사용성 개선
+- [ ] 로딩 상태 표시 구현
+- [ ] 에러 처리 및 표시
+- [ ] 성공/실패 알림 구현
+- [ ] 키보드 네비게이션 지원
+- [ ] 반응형 디자인 검증 및 개선
+
+3. 테스트 및 문서화
+- [ ] 단위 테스트 작성
+- [ ] E2E 테스트 작성
+- [ ] README.md 작성
+- [ ] API 문서화
